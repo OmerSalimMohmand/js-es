@@ -1,20 +1,20 @@
 // console.log("In the name of Allah");
 
-const car = {
-  make: "Toyota",
-  model: "Corrola",
-  "Fuel Type": "Petrol",
-  drive: function() {
-    console.log(`${this.make} ${this.model} is driving`)
-  },
-  show: function() {
-    console.log(this)
-  },
-  color: {
-    "inside color": "black",
-    "outside color": "white",
-  }
-}
+//const car = {
+//  make: "Toyota",
+//  model: "Corrola",
+// "Fuel Type": "Petrol",
+//  drive: function() {
+//    console.log(`${this.make} ${this.model} is driving`)
+//  },
+//  show: function() {
+//    console.log(this)
+//  },
+//  color: {
+//    "inside color": "black",
+//    "outside color": "white",
+//  }
+//}
 
 // console.log(car.make);
 // console.log(car.model);
@@ -46,14 +46,47 @@ const car = {
 //   }
 // }
 
-for (let key in car) {
-  if (typeof car[key] === 'object' && car[key] !== null) {
-    for (let inKey in car[key]) {
-      console.log(`${inKey}: ${car[key][inKey]}`);
+// for (let key in car) {
+//  if (typeof car[key] === 'object' && car[key] !== null) {
+//    for (let inKey in car[key]) {
+//      console.log(`${inKey}: ${car[key][inKey]}`);
+//    }
+//  } else {
+//    console.log(`${key}: ${car[key]}`);
+//  }
+//}
+
+//const car = new Object()
+//car.brand = "Toyota"
+//car.engine = {'fuel': 'Petrol', 'power': 'V6'}
+
+// console.log(Object.entries(car))
+
+// function Car(make, fuel, power){
+//   this.make = make
+//   this.engine = {
+//     'fuel': fuel,
+//     'power': power
+//   }
+// }
+
+// const car = new Car('Toyota', 'Petrol', 'V6');
+
+class Car{
+  constructor(make, fuel, power){
+    this.make = make
+    this.engine = {
+      'fuel': fuel,
+      'power': 'V6'
     }
-  } else {
-    console.log(`${key}: ${car[key]}`);
+    
+      this.print = function(){
+    console.log(this)
+  }
   }
 }
 
+const car = new Car('Toyota', 'Petrol', 'V6')
 
+//console.log(car)
+car.print()
