@@ -79,10 +79,10 @@ class Car{
       'fuel': fuel,
       'power': 'V6'
     }
-    
-      this.print = function(){
-    console.log(this)
   }
+  
+  print(){
+    console.log(this)
   }
 }
 
