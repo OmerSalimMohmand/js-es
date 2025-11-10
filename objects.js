@@ -47,14 +47,11 @@ for (let k in car) {
 }
 
 for (key in car) {
-    if (typeof car[key] == "function")
-        continue;
+  if (typeof car[key] == "function") continue;
 
-    if (typeof car[key] == "object" && car[key] != null)
-      for (inKey in car[key])
-            console.log(`${inKey}: ${car[key][inKey]}`);
-        
-    else console.log(`${key}: ${car[key]}`);
+  if (typeof car[key] == "object" && car[key] != null)
+    for (inKey in car[key]) console.log(`${inKey}: ${car[key][inKey]}`);
+  else console.log(`${key}: ${car[key]}`);
 }
 
 const car = new Object();
@@ -111,3 +108,62 @@ let patientNames = patients.reduce(
   (strNames, patient) => `${strNames} ${patient}`
 );
 console.log(patientNames);
+
+//--- Array of Objects
+
+const cars = [
+  {
+    make: "Toyota",
+    model: "Camry",
+    price: 10000,
+    engine: {
+      fuelType: "Octane",
+      power: "V4",
+    },
+  },
+  {
+    make: "Toyota",
+    model: "Corolla",
+    price: 20000,
+    engine: {
+      fuelType: "Diesel",
+      power: "V6",
+    },
+  },
+  {
+    make: "Luxes",
+    model: "Sedan",
+    price: 30000,
+    engine: {
+      fuelType: "Octane",
+      power: "V4",
+    },
+  },
+];
+
+for (let i = 0; i < cars.length; i++) {
+  console.log(JSON.stringify(cars[i]));
+}
+
+cars.forEach((car) =>
+  console.log(`${car.make} - ${car.model} (${car.engine.power})`)
+);
+
+let modifiedPrices = cars.map((car) => {
+  car.price = car.price - (20 / 100) * car.price;
+  // car.engine.power = "Solar";
+});
+
+console.log(modifiedPrices);
+console.log(cars);
+
+const lowPriceCars = cars
+  .filter((car) => car.price <= 20000)
+  .filter((car) => car.model == "Corolla");
+console.log(lowPriceCars);
+
+const targetCar = cars.find((car) => car.price == 10000);
+console.log(targetCar);
+
+const totalBudget = cars.reduce((total, car) => total + car.price, 0);
+console.log(totalBudget);
