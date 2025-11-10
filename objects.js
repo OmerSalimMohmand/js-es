@@ -149,10 +149,10 @@ cars.forEach((car) =>
   console.log(`${car.make} - ${car.model} (${car.engine.power})`)
 );
 
-let modifiedPrices = cars.map((car) => {
-  car.price = car.price - (20 / 100) * car.price;
-  // car.engine.power = "Solar";
-});
+let modifiedPrices = cars.map((car) => (car.price - 1000)); //return new array only
+let modifiedPrices = cars.map((car) => (car.price = car.price - 1000)); //update original as well as return a new array.
+                                                                        //Remember that car argument is the reference for the original car object in the array, so it's mutable.
+let modifiedPrices = cars.map((car) => { car.price = car.price - 1000 }); //update original only without returning
 
 console.log(modifiedPrices);
 console.log(cars);
